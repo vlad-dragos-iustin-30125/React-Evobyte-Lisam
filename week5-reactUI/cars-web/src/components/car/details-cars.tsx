@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 import { Car } from "../../models/Car";
 import { useNavigate, useParams } from "react-router-dom";
+import {
+  Button,
+  Paper,
+  Table,
+  TableCell,
+  TableContainer,
+  TableRow,
+  Container,
+} from "@mui/material";
 
 export default function DetailsCar() {
   const navigate = useNavigate();
@@ -18,39 +27,39 @@ export default function DetailsCar() {
     return <p>Loading...</p>;
   }
   return (
-    <>
+    <Container maxWidth="lg">
       <h1>Details for {car.name}</h1>
-      <table>
-        <tbody>
-          <tr>
-            <th>Number ID</th>
-            <td>{car.id}</td>
-          </tr>
-          <tr>
-            <th>Name</th>
-            <td>{car.name}</td>
-          </tr>
-          <tr>
-            <th>Descriptiom</th>
-            <td>{car.description}</td>
-          </tr>
-          <tr>
-            <th>DOM</th>
-            <td>{car.dom}</td>
-          </tr>
-          <tr>
-            <th>Fuel</th>
-            <td>{car.fuel}</td>
-          </tr>
-        </tbody>
-      </table>
-      <button
+      <TableContainer component={Paper}>
+        <Table>
+          <TableRow>
+            <TableCell>Number ID</TableCell>
+            <TableCell>{car.id}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell>{car.name}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Description</TableCell>
+            <TableCell>{car.description}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>DOM</TableCell>
+            <TableCell>{car.dom}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Fuel</TableCell>
+            <TableCell>{car.fuel}</TableCell>
+          </TableRow>
+        </Table>
+      </TableContainer>
+      <Button
         onClick={() => {
           navigate("/cars");
         }}
       >
         Back
-      </button>
-    </>
+      </Button>
+    </Container>
   );
 }

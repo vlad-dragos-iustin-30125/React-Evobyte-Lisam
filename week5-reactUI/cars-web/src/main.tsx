@@ -5,6 +5,10 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ShowAllCars } from "./components/car/show-all-cars.tsx";
 import DetailsCar from "./components/car/details-cars.tsx";
+import EditCar from "./components/car/edit-cars.tsx";
+import DeleteCar from "./components/car/delete-cars.tsx";
+import AddCar from "./components/car/add-cars.tsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,17 +23,20 @@ const router = createBrowserRouter([
     element: <DetailsCar />,
   },
   {
-    path: "/cars/update/:userId",
-    element: <div>to do update</div>,
+    path: "/cars/edit/:userId",
+    element: <EditCar />,
   },
   {
     path: "/cars/delete/:userId",
-    element: <div>to do delete</div>,
+    element: <DeleteCar />,
+  },
+  {
+    path: "/cars/addcar/:userId",
+    element: <AddCar />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-    <App />
   </React.StrictMode>
 );
